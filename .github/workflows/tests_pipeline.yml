@@ -9,18 +9,21 @@ jobs:
     steps:
       - uses: actions/checkout@v1
 
-      - name: set up JDK 18
+      # Set up the JDK version to 18
+      - name: Set up JDK 18
         uses: actions/setup-java@v1
         with:
           java-version: 18
 
+      #Makes the gradlew executable
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
       # Execute unit tests
-      - name: Unit Test ViewModel
+      - name: Run unit tests
         run: ./gradlew testDebugUnitTest
-      
+
+      #Generate test report
       - name: Android Test Report
         uses: asadmansr/android-test-report-action@v1.2.0
         if: ${{ always() }}
