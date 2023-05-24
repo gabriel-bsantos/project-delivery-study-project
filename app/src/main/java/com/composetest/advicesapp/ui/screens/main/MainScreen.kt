@@ -11,7 +11,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,9 +36,7 @@ fun MainScreen(
 
         if(!isLoading.value){
             Text(
-                text = if (LocalInspectionMode.current)
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ut.".allToUppercase()
-                else advice.value.allToUppercase(),
+                advice.value.allToUppercase(),
                 style = Typography.headlineMedium,
                 textAlign = TextAlign.Center,
             )
@@ -70,3 +67,4 @@ private fun PreviewMainScreen() {
         MainScreen(modifier = Modifier.fillMaxSize())
     }
 }
+
